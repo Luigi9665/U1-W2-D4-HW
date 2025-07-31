@@ -65,13 +65,13 @@ console.log("prova:", boundary(400));
 console.log("__________________________Esercizio 5:");
 const epify = function (str = "Non hai inserito una stringa.") {
   if (typeof str === typeof "Prova di stringa") {
-    if (!str.toUpperCase().includes("EPICODE")) {
+    if (str.toUpperCase().indexOf("EPICODE") != 0) {
       return "Epicode " + str;
     } else return str;
   } else return "Non hai inserito una stringa.";
 };
 
-console.log("prova:", epify("oggi non siamo pronti"));
+console.log("prova:", epify("oggi epicode non siamo epicode pronti epicode"));
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
  di 3 o di 7. (Suggerimento: usa l'operatore modulo)
@@ -134,7 +134,7 @@ console.log("prova:", upperFirst("potrebbe essere anche una frase più lunga"));
 /* SCRIVI QUI LA TUA RISPOSTA */
 console.log("__________________________Esercizio 9:");
 const cutString = function (str = "inserisci una stringa") {
-  if (String) {
+  if (typeof str === typeof "Prova di stringa") {
     return str.substring(1, str.length - 1);
   } else return "Non hai inserito una stringa.";
 };
@@ -146,7 +146,7 @@ console.log("prova:", cutString("Prova di una stringa da modificare"));
 /* SCRIVI QUI LA TUA RISPOSTA */
 console.log("__________________________Esercizio 10:");
 const giveMeRandom = function (n = 0) {
-  if (Number) {
+  if (typeof n === typeof 10) {
     const arrayRandom = [];
     for (let i = 0; i < n; i++) {
       arrayRandom[i] = Math.floor(Math.random() * 11);
