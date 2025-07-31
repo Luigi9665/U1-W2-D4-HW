@@ -36,6 +36,43 @@ console.log("la somma dei valori:", checkArray(giveMeRandom(10)));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 console.log("__________________________Esercizio 2:");
+const shoppingCart = [
+  {
+    price: 50,
+    name: "vaso",
+    id: "1",
+    quantity: 3,
+  },
+  {
+    price: 100,
+    name: "letto",
+    id: "2",
+    quantity: 1,
+  },
+  {
+    price: 20,
+    name: "lampada",
+    id: "3",
+    quantity: 6,
+  },
+  {
+    price: 10,
+    name: "tappeto",
+    id: "4",
+    quantity: 2,
+  },
+];
+
+const shoppingCartTotal = function (arrObject) {
+  let sommTotal = 0;
+  for (let i = 0; i < arrObject.length; i++) {
+    let som = arrObject[i].price * arrObject[i].quantity;
+    sommTotal += som;
+  }
+  return sommTotal;
+};
+
+console.log("il totale dovuto al negozio è:", shoppingCartTotal(shoppingCart));
 
 /* EXTRA 3
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -43,6 +80,28 @@ console.log("__________________________Esercizio 2:");
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log("__________________________Esercizio 3:");
+
+console.log("elementi di shopping cart prima della modifica:", shoppingCart.length);
+
+const addToShoppingCart = function (Object) {
+  shoppingCart.push({
+    price: Object.price,
+    name: Object.name,
+    id: Object.id,
+    quantity: Object.quantity,
+  });
+};
+
+addToShoppingCart({
+  price: 30,
+  name: "scarpe",
+  id: "5",
+  quantity: 3,
+});
+
+console.log("elementi di shopping cart dopo la modifica:", shoppingCart.length);
+console.log(shoppingCart);
 
 /* EXTRA 4
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -50,6 +109,21 @@ console.log("__________________________Esercizio 2:");
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log("__________________________Esercizio 4:");
+const maxShoppingCart = function (arrObject) {
+  let indexMax = 0;
+  for (let i = 0; i < arrObject.length; i++) {
+    for (let x = 0; x < arrObject.length; x++) {
+      if (arrObject[i].price > arrObject[x].price) {
+        indexMax = i;
+      }
+    }
+  }
+  console.log("l'indice è:", indexMax);
+  return arrObject[indexMax];
+};
+
+console.log("l'oggetto col valore maggiore:", maxShoppingCart(shoppingCart));
 
 /* EXTRA 5
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".

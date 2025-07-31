@@ -65,8 +65,8 @@ console.log("prova:", boundary(400));
 console.log("__________________________Esercizio 5:");
 const epify = function (str = "Non hai inserito una stringa.") {
   if (typeof str === typeof "Prova di stringa") {
-    if (str.toUpperCase().indexOf("EPICODE") != 0) {
-      return "Epicode " + str;
+    if (str.toUpperCase().indexOf("EPICODE") !== 0) {
+      return "EPICODE " + str;
     } else return str;
   } else return "Non hai inserito una stringa.";
 };
@@ -80,7 +80,7 @@ console.log("prova:", epify("oggi epicode non siamo epicode pronti epicode"));
 /* SCRIVI QUI LA TUA RISPOSTA */
 console.log("__________________________Esercizio 6:");
 const check3and7 = function (numPositive) {
-  if (numPositive % 3 == 0 || numPositive % 7 == 0) {
+  if (numPositive % 3 === 0 || numPositive % 7 === 0) {
     console.log("Il numero inserito è un multiplo di 3 o di 7");
   } else console.log("Il numero inserito non è un multiplo di 3 o di 7");
 };
