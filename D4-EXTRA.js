@@ -15,7 +15,7 @@ const giveMeRandom = function (n = 0) {
       arrayRandom[i] = Math.floor(Math.random() * 11);
     }
     return arrayRandom;
-  } else "non hai inserito un numero!";
+  } else return "non hai inserito un numero!";
 };
 
 const checkArray = function (arr) {
@@ -112,18 +112,18 @@ console.log(shoppingCart);
 console.log("__________________________Esercizio 4:");
 const maxShoppingCart = function (arrObject) {
   let indexMax = 0;
-  for (let i = 0; i < arrObject.length; i++) {
-    for (let x = 0; x < arrObject.length; x++) {
-      if (arrObject[i].price > arrObject[x].price) {
-        indexMax = i;
-      }
+  let valoreRecuperato = shoppingCart[0].price;
+  for (let i = 0; i < shoppingCart.length; i++) {
+    if (shoppingCart[i].price > valoreRecuperato) {
+      valoreRecuperato = shoppingCart[i].price;
+      indexMax = i;
     }
   }
   console.log("l'indice è:", indexMax);
   return arrObject[indexMax];
 };
-
-console.log("l'oggetto col valore maggiore:", maxShoppingCart(shoppingCart));
+const piùcostoso = maxShoppingCart(shoppingCart);
+console.log("l'oggetto col valore maggiore:", piùcostoso);
 
 /* EXTRA 5
  Nel tuo eCommerce disponi di un'array di oggetti chiamato "shoppingCart". Ognuno di questi oggetti ha le seguenti proprietà: "price", "name", "id" e "quantity".
@@ -131,6 +131,12 @@ console.log("l'oggetto col valore maggiore:", maxShoppingCart(shoppingCart));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const latestShoppingCart = function (arrObject) {
+  return arrObject[arrObject.length - 1];
+};
+
+const ultimoElemento = latestShoppingCart(shoppingCart);
+console.log("L'ultimo elemento dell'array:", ultimoElemento);
 
 /* EXTRA 6
  Crea una funzione chiamata "loopUntil" che riceve un numero intero come parametro con valore tra 0 e 9.
@@ -138,6 +144,25 @@ console.log("l'oggetto col valore maggiore:", maxShoppingCart(shoppingCart));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const loopUntil = function (numIntero) {
+  console.log("Il valore inserito è ", numIntero);
+  let x = 0;
+  let contatoreciclo = 0;
+  if (numIntero >= 0 && numIntero <= 9) {
+    while (x < 3) {
+      contatoreciclo++;
+      let numerorandom = Math.floor(Math.random() * 10);
+      console.log("Il valore generato randomicamente è:", numerorandom);
+      if (numerorandom > numIntero) {
+        x++;
+      } else x = 0;
+    }
+    console.log("Sono stati effettuati ", contatoreciclo, " cicli.");
+  } else return "Non hai inserito un numero tra 0 e 9";
+};
+
+loopUntil(Math.floor(Math.random() * 10));
 
 /* EXTRA 7
 Crea una funzione chiamata "average" che riceve un array come parametro e ne ritorna la media aritmetica. La funzione salta automaticamente i valori non numerici nell'array.

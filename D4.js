@@ -152,7 +152,7 @@ const giveMeRandom = function (n = 0) {
       arrayRandom[i] = Math.floor(Math.random() * 11);
     }
     return arrayRandom;
-  } else "non hai inserito un numero!";
+  } else return "non hai inserito un numero!";
 };
 
 console.log("prova: ", giveMeRandom(10));
