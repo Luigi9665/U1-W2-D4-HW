@@ -131,6 +131,7 @@ console.log("l'oggetto col valore maggiore:", piùcostoso);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log("__________________________Esercizio 5:");
 const latestShoppingCart = function (arrObject) {
   return arrObject[arrObject.length - 1];
 };
@@ -144,7 +145,7 @@ console.log("L'ultimo elemento dell'array:", ultimoElemento);
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-
+console.log("__________________________Esercizio 6:");
 const loopUntil = function (numIntero) {
   console.log("Il valore inserito è ", numIntero);
   let x = 0;
@@ -169,12 +170,55 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log("__________________________Esercizio 7:");
+const average = function (arr) {
+  let sommNumeri = 0;
+  let contNumeri = 0;
+  let contnotNumeri = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if (typeof element === "number") {
+      sommNumeri += element;
+      contNumeri++;
+    } else contnotNumeri++;
+  }
+  console.log(
+    "Sono stati verificati n:",
+    arr.length,
+    " elementi. N:",
+    contNumeri,
+    " sono risultati essere dei numeri mentre n:",
+    contnotNumeri,
+    " non sono numeri."
+  );
+  return sommNumeri / contNumeri;
+};
+
+arrNumStr = [1, 24, 56, 54, 6, 9, 0, 23, "ciao", "come stai?", 34];
+
+console.log("La media aritmetica dei numeri è:", average(arrNumStr));
 
 /* EXTRA 8
  Crea una funzione chiamata "longest" che trova la stringa più lunga all'interno di un array di stringhe fornito come parametro.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log("__________________________Esercizio 8:");
+const longest = function (arrStr) {
+  let constante = arrStr[0].length;
+  let indiceDaPrelevare = 0;
+  for (let i = 0; i < arrStr.length; i++) {
+    const element = arrStr[i].length;
+    if (element > constante) {
+      constante = element;
+      indiceDaPrelevare = i;
+    }
+  }
+  console.log("la prima stringa più lunga è nella posizione n:", indiceDaPrelevare, " dell'array. il valore è:", arrStr[indiceDaPrelevare]);
+};
+
+arrStringhe = ["tantissime parole da prendere", "ciao", "mi chiamo Luigi", "una parola", "tantissime parole da prendere", "tantissime parole da prendere?"];
+longest(arrStringhe);
 
 /* EXTRA 9
  Crea una funzione per creare un filtro anti-spam per la tua casella email. La funzione riceve un parametro stringa chiamato "emailContent", e torna un valore booleano.
@@ -182,12 +226,37 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log("__________________________Esercizio 9:");
+const antiSpam = function (emailContent) {
+  if (typeof emailContent === "string") {
+    return emailContent.toUpperCase().includes("SPAM" || "SCAM");
+  } else return "Il parametro passato non è una stringa";
+};
+
+const email = `Oggetto: Non perdetevi questa offerta! (Spam)
+Ciao,
+Non perderti questa offerta incredibile! Clicca qui per saperne di più. [Link] (Questo è spam)
+Grazie`;
+
+console.log("L' email passata come parametro contiene la parola SPAM o SCAM?", antiSpam(email));
 
 /* EXTRA 10
  Scrivi una funzione che riceve una data come parametro, e calcola il numero di giorni passati da quella data.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log("__________________________Esercizio 10:");
+
+const contaGiorni = function (date) {
+  const oggi = new Date();
+  if (oggi > date) {
+    const differenzaGiorni = oggi - date;
+    const milliSecondi = 1000 * 60 * 60 * 24;
+    return Math.floor(differenzaGiorni / milliSecondi);
+  } else return "Non hai inserito una data valida";
+};
+const dateDainserire = new Date(2025, 7, 1);
+console.log("quanti giorni sono passati dal", dateDainserire, "ad oggi?", contaGiorni(dateDainserire));
 
 /* EXTRA 11
  Scrivi una funzione chiamata "matrixGenerator" che riceve come parametri due numeri interi, "x" e "y".
@@ -198,3 +267,28 @@ Crea una funzione chiamata "average" che riceve un array come parametro e ne rit
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log("__________________________Esercizio 11:");
+const generaStringa = function () {
+  const caratteri = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const len = Math.floor(Math.random() * 4) + 1; // lunghezza 1-4
+  let str = "";
+  for (let i = 0; i < len; i++) {
+    str += caratteri.charAt(Math.floor(Math.random() * caratteri.length));
+  }
+  return str;
+};
+
+const matrixGenerator = function (x, y) {
+  const matrice = [];
+  for (let i = 0; i < x; i++) {
+    const riga = [];
+    for (let i2 = 0; i2 < y; i2++) {
+      riga.push(generaStringa());
+    }
+    matrice.push(riga);
+  }
+  return matrice;
+};
+
+matriceReale = matrixGenerator(5, 3);
+console.log("la matrice:", matriceReale);
